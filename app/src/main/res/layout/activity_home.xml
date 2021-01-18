@@ -8,10 +8,65 @@
 
     <TextView
         android:id="@+id/textView_test"
-        android:layout_width="156dp"
-        android:layout_height="53dp"
-        android:text="Disclaimer hat geklappt"
+        android:layout_width="245dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="339dp" />
+        android:text="Please fill in your name and e-mail"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtTxtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtMail"
+        app:layout_constraintEnd_toEndOf="@+id/textView_test"
+        app:layout_constraintStart_toStartOf="@+id/textView_test"
+        app:layout_constraintTop_toBottomOf="@+id/textView_test"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtTxtMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="436dp"
+        android:ems="10"
+        android:hint="e-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtName"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtName"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtTxtNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Subject Number"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtMail"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtMail"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtMail"
+        app:layout_constraintVertical_bias="0.084"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtNumber"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtNumber"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtNumber"
+        app:layout_constraintVertical_bias="0.116"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
