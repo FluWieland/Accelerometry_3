@@ -12,9 +12,13 @@ import android.hardware.SensorEventListener;
 
 public class measurement extends AppCompatActivity implements SensorEventListener{
     TextView x_txt, y_txt, z_txt, txtTitleAcc;
+    TextView x_txt_g, y_txt_g, z_txt_g, txtTitleGyro;
+
     private Sensor Accelerometer;
     private SensorManager SM_acc;
 
+    private Sensor Gyroscope;
+    private SensorManager SM_gyro;
 
 
 
@@ -37,6 +41,21 @@ public class measurement extends AppCompatActivity implements SensorEventListene
         y_txt = (TextView)findViewById(R.id.y_txt);
         z_txt = (TextView)findViewById(R.id.z_txt);
 
+
+        // Sensormanager accelerometer
+        SM_gyro = (SensorManager)getSystemService(SENSOR_SERVICE);
+
+        // Accelerometer Sensor
+        Gyroscope = SM_gyro.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+
+        // Register Sensor Listener Accelerometer
+        SM_gyro.registerListener(this, Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+
+        //Assign TextViews
+        x_txt_g = (TextView)findViewById(R.id.x_txt_g);
+        y_txt_g = (TextView)findViewById(R.id.y_txt_g);
+        z_txt_g = (TextView)findViewById(R.id.z_txt_g);
+
     }
 
     @Override
@@ -45,7 +64,12 @@ public class measurement extends AppCompatActivity implements SensorEventListene
         y_txt.setText("Y: " + event.values[1]);
         z_txt.setText("Z: " + event.values[2]);
 
+        x_txt_g.setText("X: " + event.values[0]);
+        y_txt_g.setText("Y: " + event.values[1]);
+        z_txt_g.setText("Z: " + event.values[2]);
+
     }
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
