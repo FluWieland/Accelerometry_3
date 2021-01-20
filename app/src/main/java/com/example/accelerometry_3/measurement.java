@@ -20,6 +20,8 @@ public class measurement extends AppCompatActivity implements SensorEventListene
     private Sensor Gyroscope;
     private SensorManager SM_gyro;
 
+    private Accelerometer accelerometer;
+    private Gyroscope gyroscope;
 
 
     @Override
@@ -27,14 +29,38 @@ public class measurement extends AppCompatActivity implements SensorEventListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurement);
 
+        accelerometer = new Accelerometer(this);
+        gyroscope =  new Gyroscope(this);
+
+        accelerometer.setListener(new Accelerometer.Listener() {
+            @Override
+            public void onTranslation(float tx, float ty, float tz) {
+                x_txt.setText("X: " + tx);
+                y_txt.setText("Y: " + ty);
+                z_txt.setText("Z: " + tz);
+
+            }
+        });
+
+        gyroscope.setListener(new Gyroscope.Listener() {
+            @Override
+            public void onRotation(float rx, float ry, float rz) {
+                x_txt_g.setText("X: " + rx);
+                y_txt_g.setText("Y: " + ry);
+                z_txt_g.setText("Z: " + rz);
+
+            }
+        });
+
+
         // Sensormanager accelerometer
-        SM_acc = (SensorManager)getSystemService(SENSOR_SERVICE);
+        // SM_acc = (SensorManager)getSystemService(SENSOR_SERVICE);
 
         // Accelerometer Sensor
-        Accelerometer = SM_acc.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        // Accelerometer = SM_acc.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         // Register Sensor Listener Accelerometer
-        SM_acc.registerListener(this, Accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        //SM_acc.registerListener(this, Accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 
         //Assign TextViews
         x_txt = (TextView)findViewById(R.id.x_txt);
@@ -43,13 +69,13 @@ public class measurement extends AppCompatActivity implements SensorEventListene
 
 
         // Sensormanager Gyro
-        SM_gyro = (SensorManager)getSystemService(SENSOR_SERVICE);
+        //SM_gyro = (SensorManager)getSystemService(SENSOR_SERVICE);
 
         // Gyroscope Sensor
-        Gyroscope = SM_gyro.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        //Gyroscope = SM_gyro.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
         // Register Sensor Listener Gyroscope
-        SM_gyro.registerListener(this, Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+        //SM_gyro.registerListener(this, Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
 
         //Assign TextViews
         x_txt_g = (TextView)findViewById(R.id.x_txt_g);
@@ -59,14 +85,25 @@ public class measurement extends AppCompatActivity implements SensorEventListene
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        x_txt.setText("X: " + event.values[0]);
-        y_txt.setText("Y: " + event.values[1]);
-        z_txt.setText("Z: " + event.values[2]);
+    protected void onResume(){
+        super.onResume();
 
-        x_txt_g.setText("X: " + event.values[0]);
-        y_txt_g.setText("Y: " + event.values[1]);
-        z_txt_g.setText("Z: " + event.values[2]);
+        accelerometer.register();
+        gyroscope.register();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        accelerometer.unregister();
+        gyroscope.unregister();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
 
     }
 
