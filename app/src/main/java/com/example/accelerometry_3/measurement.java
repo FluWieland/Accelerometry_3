@@ -42,13 +42,13 @@ public class measurement extends AppCompatActivity implements SensorEventListene
         z_txt = (TextView)findViewById(R.id.z_txt);
 
 
-        // Sensormanager accelerometer
+        // Sensormanager Gyro
         SM_gyro = (SensorManager)getSystemService(SENSOR_SERVICE);
 
-        // Accelerometer Sensor
+        // Gyroscope Sensor
         Gyroscope = SM_gyro.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
-        // Register Sensor Listener Accelerometer
+        // Register Sensor Listener Gyroscope
         SM_gyro.registerListener(this, Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
 
         //Assign TextViews
@@ -69,6 +69,8 @@ public class measurement extends AppCompatActivity implements SensorEventListene
         z_txt_g.setText("Z: " + event.values[2]);
 
     }
+
+
 
 
     @Override
