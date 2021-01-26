@@ -7,16 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import javax.security.auth.Subject;
 
 public class HomeActivity extends AppCompatActivity {
     String name, email;
     int SubjectNumber;
 
-    EditText edtTxtName;
-    EditText edtTxtMail;
-    EditText edtTxtNumber;
+    EditText edtTxtName, edtTxtMail, edtTxtNumber;
 
-    Button btnSubmit;
+    TextView txtName, txtMail, txtSubject;
+
+    Button btnSubmit, btnToAccGyr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,10 @@ public class HomeActivity extends AppCompatActivity {
         edtTxtMail = (EditText) findViewById(R.id.edtTxtMail);
         edtTxtNumber = (EditText) findViewById(R.id.edtTxtNumber);
 
+        txtName = (TextView) findViewById(R.id.txtName);
+        txtMail = (TextView) findViewById(R.id.txtMail);
+        txtSubject = (TextView) findViewById(R.id.txtSubject);
+
         btnSubmit =  (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,8 +42,18 @@ public class HomeActivity extends AppCompatActivity {
                 email = edtTxtMail.getText().toString();
                 SubjectNumber = Integer.valueOf(edtTxtNumber.getText().toString());
 
-                moveToMeasurement();
+                txtName.setText(name);
+                txtMail.setText(email);
+                txtSubject.setText(SubjectNumber);
 
+            }
+        });
+
+        btnToAccGyr = (Button)findViewById(R.id.btnToAccGyr);
+        btnToAccGyr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToMeasurement();
             }
         });
     }

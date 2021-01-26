@@ -35,12 +35,13 @@
         android:id="@+id/edtTxtMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="436dp"
+        android:layout_marginBottom="464dp"
         android:ems="10"
         android:hint="e-mail"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtTxtName"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edtTxtName"
         tools:ignore="MissingConstraints" />
 
@@ -53,9 +54,10 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtTxtMail"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edtTxtMail"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtMail"
-        app:layout_constraintVertical_bias="0.084"
+        app:layout_constraintVertical_bias="0.045"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -65,8 +67,56 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtTxtNumber"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/edtTxtNumber"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtNumber"
-        app:layout_constraintVertical_bias="0.116"
+        app:layout_constraintVertical_bias="0.028"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtMail"
+        android:layout_width="203dp"
+        android:layout_height="35dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSubmit"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/btnSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <TextView
+        android:id="@+id/txtSubject"
+        android:layout_width="203dp"
+        android:layout_height="35dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSubmit"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/btnSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="203dp"
+        android:layout_height="35dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSubmit"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/btnSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/btnToAccGyr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data is correct"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtSubject"
+        app:layout_constraintStart_toStartOf="@+id/txtSubject"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubject"
+        app:layout_constraintVertical_bias="0.398" />
 </androidx.constraintlayout.widget.ConstraintLayout>
