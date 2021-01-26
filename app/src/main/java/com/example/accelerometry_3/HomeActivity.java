@@ -12,8 +12,7 @@ import android.widget.TextView;
 import javax.security.auth.Subject;
 
 public class HomeActivity extends AppCompatActivity {
-    String name, email;
-    String SubjectNumber;
+    String name, email, SubjectNumber;
 
     EditText edtTxtName, edtTxtMail, edtTxtNumber;
 
@@ -26,14 +25,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Define the text input fields
         edtTxtName = (EditText) findViewById(R.id.edtTxtName);
         edtTxtMail = (EditText) findViewById(R.id.edtTxtMail);
         edtTxtNumber = (EditText) findViewById(R.id.edtTxtNumber);
 
+        //Define the text views
         txtName = (TextView) findViewById(R.id.txtName);
         txtMail = (TextView) findViewById(R.id.txtMail);
         txtSubject = (TextView) findViewById(R.id.txtSubject);
 
+        //define the button to submit the data and define what it does when clicked
         btnSubmit =  (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+        //Define the Button to the next page and define what it does when clicked
         btnToAccGyr = (Button)findViewById(R.id.btnToAccGyr);
         btnToAccGyr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    //function to move to the next page
     private void moveToMeasurement(){
         Intent intent =  new Intent(HomeActivity.this, measurement.class);
         startActivity(intent);
