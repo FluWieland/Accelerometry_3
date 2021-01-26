@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
                 name = edtTxtName.getText().toString();
                 email = edtTxtMail.getText().toString();
                 SubjectNumber = edtTxtNumber.getText().toString();
-
+// Kommentar
                 txtName.setText(name);
                 txtMail.setText(email);
                 txtSubject.setText(SubjectNumber);
