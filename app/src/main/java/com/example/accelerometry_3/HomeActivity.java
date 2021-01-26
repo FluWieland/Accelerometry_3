@@ -13,7 +13,7 @@ import javax.security.auth.Subject;
 
 public class HomeActivity extends AppCompatActivity {
     String name, email;
-    int SubjectNumber;
+    String SubjectNumber;
 
     EditText edtTxtName, edtTxtMail, edtTxtNumber;
 
@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 name = edtTxtName.getText().toString();
                 email = edtTxtMail.getText().toString();
-                SubjectNumber = Integer.valueOf(edtTxtNumber.getText().toString());
+                SubjectNumber = edtTxtNumber.getText().toString();
 
                 txtName.setText(name);
                 txtMail.setText(email);
